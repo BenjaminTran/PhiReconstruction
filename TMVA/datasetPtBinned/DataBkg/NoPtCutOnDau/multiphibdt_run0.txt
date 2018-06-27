@@ -1,0 +1,416 @@
+
+Processing MultiPhiBDT.cc...
+DataSetInfo              : [dataset_pt0-0.5] : Added class "Signal"
+                         : Add Tree SignalTree of type Signal with 5235606 events
+DataSetInfo              : [dataset_pt0-0.5] : Added class "Background"
+                         : Add Tree BackgroundTree of type Background with 20872998 events
+                         : Dataset[dataset_pt0-0.5] : Class index : 0  name : Signal
+                         : Dataset[dataset_pt0-0.5] : Class index : 1  name : Background
+Factory                  : Booking method: [1mBDT[0m
+                         : 
+                         : Parsing option string: 
+                         : ... "nTrain_Signal=0:nTrain_Background=80000:nTest_Signal=0:nTest_Background=80000:SplitMode=Random:NormMode=NumEvents:V"
+                         : The following options are set:
+                         : - By User:
+                         :     SplitMode: "Random" [Method of picking training and testing events (default: random)]
+                         :     NormMode: "NumEvents" [Overall renormalisation of  event-by-event weights used in the training (NumEvents: average weight of 1 per event, independently for signal and background; EqualNumEvents: average weight of 1 per event for signal, and sum of weights for background equal to sum of weights for signal)]
+                         :     nTrain_Signal: "0" [Number of training events of class Signal (default: 0 = all)]
+                         :     nTest_Signal: "0" [Number of test events of class Signal (default: 0 = all)]
+                         :     nTrain_Background: "80000" [Number of training events of class Background (default: 0 = all)]
+                         :     nTest_Background: "80000" [Number of test events of class Background (default: 0 = all)]
+                         :     V: "True" [Verbosity (default: true)]
+                         : - Default:
+                         :     MixMode: "SameAsSplitMode" [Method of mixing events of different classes into one dataset (default: SameAsSplitMode)]
+                         :     SplitSeed: "100" [Seed for random event shuffling]
+                         :     ScaleWithPreselEff: "False" [Scale the number of requested events by the eff. of the preselection cuts (or not)]
+                         :     TrainTestSplit_Signal: "0.000000e+00" [Number of test events of class Signal (default: 0 = all)]
+                         :     TrainTestSplit_Background: "0.000000e+00" [Number of test events of class Background (default: 0 = all)]
+                         :     VerboseLevel: "Info" [VerboseLevel (Debug/Verbose/Info)]
+                         :     Correlations: "True" [Boolean to show correlation output (Default: true)]
+DataSetFactory           : [dataset_pt0-0.5] : Number of events in input trees
+                         : Dataset[dataset_pt0-0.5] :     Signal     requirement: "pt > 0 && pt < 0.5"
+                         : Dataset[dataset_pt0-0.5] :     Signal          -- number of events passed: 64445  / sum of weights: 64445
+                         : Dataset[dataset_pt0-0.5] :     Signal          -- efficiency             : 0.012309
+                         : Dataset[dataset_pt0-0.5] :     Background requirement: "pt > 0 && pt < 0.5"
+                         : Dataset[dataset_pt0-0.5] :     Background      -- number of events passed: 3131998  / sum of weights: 3.132e+06
+                         : Dataset[dataset_pt0-0.5] :     Background      -- efficiency             : 0.186682
+                         : Dataset[dataset_pt0-0.5] :  you have opted for interpreting the requested number of training/testing events
+                         :  to be the number of events AFTER your preselection cuts
+                         : 
+                         : Dataset[dataset_pt0-0.5] :  you have opted for interpreting the requested number of training/testing events
+                         :  to be the number of events AFTER your preselection cuts
+                         : 
+                         : Number of training and testing events
+                         : ---------------------------------------------------------------------------
+                         : Signal     -- training events            : 32222
+                         : Signal     -- testing events             : 32222
+                         : Signal     -- training and testing events: 64444
+                         : Dataset[dataset_pt0-0.5] : Signal     -- due to the preselection a scaling factor has been applied to the numbers of requested events: 0.012309
+                         : Background -- training events            : 80000
+                         : Background -- testing events             : 80000
+                         : Background -- training and testing events: 160000
+                         : Dataset[dataset_pt0-0.5] : Background -- due to the preselection a scaling factor has been applied to the numbers of requested events: 0.15005
+                         : 
+DataSetInfo              : Correlation matrix (Signal):
+                         : -----------------------------------------------------------------
+                         :              dedx_1   eta_1 momentum_1  dedx_2   eta_2 momentum_2
+                         :     dedx_1:  +1.000  +0.037     +0.231  +0.027  -0.004     +0.197
+                         :      eta_1:  +0.037  +1.000     +0.073  +0.074  +0.568     +0.134
+                         : momentum_1:  +0.231  +0.073     +1.000  +0.137  -0.048     +0.565
+                         :     dedx_2:  +0.027  +0.074     +0.137  +1.000  -0.008     +0.158
+                         :      eta_2:  -0.004  +0.568     -0.048  -0.008  +1.000     -0.030
+                         : momentum_2:  +0.197  +0.134     +0.565  +0.158  -0.030     +1.000
+                         : -----------------------------------------------------------------
+DataSetInfo              : Correlation matrix (Background):
+                         : -----------------------------------------------------------------
+                         :              dedx_1   eta_1 momentum_1  dedx_2   eta_2 momentum_2
+                         :     dedx_1:  +1.000  +0.030     +0.513  +0.070  +0.017     +0.393
+                         :      eta_1:  +0.030  +1.000     +0.032  +0.025  +0.413     +0.031
+                         : momentum_1:  +0.513  +0.032     +1.000  +0.143  +0.019     +0.767
+                         :     dedx_2:  +0.070  +0.025     +0.143  +1.000  +0.046     +0.257
+                         :      eta_2:  +0.017  +0.413     +0.019  +0.046  +1.000     +0.028
+                         : momentum_2:  +0.393  +0.031     +0.767  +0.257  +0.028     +1.000
+                         : -----------------------------------------------------------------
+DataSetFactory           : [dataset_pt0-0.5] :  
+                         : 
+Factory                  : Booking method: [1mCutsSA[0m
+                         : 
+                         : Use optimization method: "Genetic Algorithm"
+                         : Use efficiency computation method: "Event Selection"
+Factory                  : [1mTrain all methods[0m
+Factory                  : [dataset_pt0-0.5] : Create Transformation "I" with events from all classes.
+                         : 
+                         : Transformation, Variable selection : 
+                         : Input : variable 'dedx_1' <---> Output : variable 'dedx_1'
+                         : Input : variable 'eta_1' <---> Output : variable 'eta_1'
+                         : Input : variable 'momentum_1' <---> Output : variable 'momentum_1'
+                         : Input : variable 'dedx_2' <---> Output : variable 'dedx_2'
+                         : Input : variable 'eta_2' <---> Output : variable 'eta_2'
+                         : Input : variable 'momentum_2' <---> Output : variable 'momentum_2'
+Factory                  : [dataset_pt0-0.5] : Create Transformation "D" with events from all classes.
+                         : 
+                         : Transformation, Variable selection : 
+                         : Input : variable 'dedx_1' <---> Output : variable 'dedx_1'
+                         : Input : variable 'eta_1' <---> Output : variable 'eta_1'
+                         : Input : variable 'momentum_1' <---> Output : variable 'momentum_1'
+                         : Input : variable 'dedx_2' <---> Output : variable 'dedx_2'
+                         : Input : variable 'eta_2' <---> Output : variable 'eta_2'
+                         : Input : variable 'momentum_2' <---> Output : variable 'momentum_2'
+Factory                  : [dataset_pt0-0.5] : Create Transformation "P" with events from all classes.
+                         : 
+                         : Transformation, Variable selection : 
+                         : Input : variable 'dedx_1' <---> Output : variable 'dedx_1'
+                         : Input : variable 'eta_1' <---> Output : variable 'eta_1'
+                         : Input : variable 'momentum_1' <---> Output : variable 'momentum_1'
+                         : Input : variable 'dedx_2' <---> Output : variable 'dedx_2'
+                         : Input : variable 'eta_2' <---> Output : variable 'eta_2'
+                         : Input : variable 'momentum_2' <---> Output : variable 'momentum_2'
+Factory                  : [dataset_pt0-0.5] : Create Transformation "G" with events from all classes.
+                         : 
+                         : Transformation, Variable selection : 
+                         : Input : variable 'dedx_1' <---> Output : variable 'dedx_1'
+                         : Input : variable 'eta_1' <---> Output : variable 'eta_1'
+                         : Input : variable 'momentum_1' <---> Output : variable 'momentum_1'
+                         : Input : variable 'dedx_2' <---> Output : variable 'dedx_2'
+                         : Input : variable 'eta_2' <---> Output : variable 'eta_2'
+                         : Input : variable 'momentum_2' <---> Output : variable 'momentum_2'
+Factory                  : [dataset_pt0-0.5] : Create Transformation "D" with events from all classes.
+                         : 
+                         : Transformation, Variable selection : 
+                         : Input : variable 'dedx_1' <---> Output : variable 'dedx_1'
+                         : Input : variable 'eta_1' <---> Output : variable 'eta_1'
+                         : Input : variable 'momentum_1' <---> Output : variable 'momentum_1'
+                         : Input : variable 'dedx_2' <---> Output : variable 'dedx_2'
+                         : Input : variable 'eta_2' <---> Output : variable 'eta_2'
+                         : Input : variable 'momentum_2' <---> Output : variable 'momentum_2'
+TFHandler_Factory        :   Variable          Mean          RMS   [        Min          Max ]
+                         : ---------------------------------------------------------------------
+                         :     dedx_1:      1.1632      1.8646   [      0.0000      38.744 ]
+                         :      eta_1:    -0.11914      1.3930   [     -3.5860      3.5753 ]
+                         : momentum_1:     0.47246     0.26647   [    0.052749      3.0331 ]
+                         :     dedx_2:      1.8628      2.0925   [      0.0000      32.567 ]
+                         :      eta_2:   -0.032874      1.3929   [     -3.5451      3.5869 ]
+                         : momentum_2:     0.49584     0.29217   [     0.16078      2.3900 ]
+                         : ---------------------------------------------------------------------
+                         : Preparing the Decorrelation transformation...
+TFHandler_Factory        :   Variable          Mean          RMS   [        Min          Max ]
+                         : ---------------------------------------------------------------------
+                         :     dedx_1:     0.47446      1.0000   [    -0.76185      21.239 ]
+                         :      eta_1:    -0.11556      1.0000   [     -3.3027      3.2406 ]
+                         : momentum_1:      1.2930      1.0000   [     -5.3972      14.882 ]
+                         :     dedx_2:     0.81879      1.0000   [    -0.40885      15.691 ]
+                         :      eta_2:   -0.023654      1.0000   [     -3.2038      3.3258 ]
+                         : momentum_2:      1.1106      1.0000   [     -3.6948      9.4413 ]
+                         : ---------------------------------------------------------------------
+                         : Preparing the Principle Component (PCA) transformation...
+TFHandler_Factory        :   Variable          Mean          RMS   [        Min          Max ]
+                         : ---------------------------------------------------------------------
+                         :     dedx_1: -1.2167e-10      2.1252   [     -2.5915      28.469 ]
+                         :      eta_1:  1.7531e-13      1.8404   [     -11.254      34.861 ]
+                         : momentum_1: -1.0806e-10      1.6658   [     -4.7206      5.3732 ]
+                         :     dedx_2: -7.7189e-11      1.0433   [     -4.5690      4.6293 ]
+                         :      eta_2:  1.2832e-11     0.32317   [     -2.9253      2.4164 ]
+                         : momentum_2: -2.3318e-12     0.14657   [     -1.9759      1.2169 ]
+                         : ---------------------------------------------------------------------
+                         : Preparing the Gaussian transformation...
+                         : Preparing the Decorrelation transformation...
+TFHandler_Factory        :   Variable          Mean          RMS   [        Min          Max ]
+                         : ---------------------------------------------------------------------
+                         :     dedx_1:     -1.4603      1.0000   [     -3.5582      4.0869 ]
+                         :      eta_1:    0.024649      1.0000   [     -3.8310      6.6851 ]
+                         : momentum_1:     0.41741      1.0000   [     -4.2422      8.0362 ]
+                         :     dedx_2:    -0.90415      1.0000   [     -2.7886      3.7698 ]
+                         :      eta_2:    0.022131      1.0000   [     -3.8347      6.6940 ]
+                         : momentum_2:     0.40770      1.0000   [     -3.7902      8.0510 ]
+                         : ---------------------------------------------------------------------
+                         : Ranking input variables (method unspecific)...
+IdTransformation         : Ranking result (top variable is best ranked)
+                         : -----------------------------------
+                         : Rank : Variable   : Separation
+                         : -----------------------------------
+                         :    1 : momentum_2 : 1.712e-01
+                         :    2 : momentum_1 : 1.218e-01
+                         :    3 : dedx_1     : 9.078e-02
+                         :    4 : dedx_2     : 7.857e-02
+                         :    5 : eta_1      : 7.845e-02
+                         :    6 : eta_2      : 7.544e-02
+                         : -----------------------------------
+Factory                  : Train method: BDT for Classification
+                         : 
+BDT                      : #events: (reweighted) sig: 56111 bkg: 56111
+                         : #events: (unweighted) sig: 32222 bkg: 80000
+                         : Training 850 Decision Trees ... patience please
+                         : Elapsed time for training with 112222 events: [1;31m26.9 sec[0m         
+BDT                      : [dataset_pt0-0.5] : Evaluation of BDT on training sample (112222 events)
+                         : Elapsed time for evaluation of 112222 events: [1;31m6.37 sec[0m       
+                         : Creating xml weight file: [0;36mdataset_pt0-0.5/weights/Phi_BDT_BDT.weights.xml[0m
+                         : Creating standalone class: [0;36mdataset_pt0-0.5/weights/Phi_BDT_BDT.class.C[0m
+                         : PhiBDT_MCBkg_pt0-0.5.root:/dataset_pt0-0.5/Method_BDT/BDT
+Factory                  : Training finished
+                         : 
+Factory                  : Train method: CutsSA for Classification
+                         : 
+FitterBase               : <SimulatedAnnealingFitter> Optimisation, please be patient ... 
+                         : (progress timing may be inaccurate for SA)
+                         : Temperatur scale = 0.0125, current temperature = 1e-06
+                         : Elapsed time: [1;31m407 sec[0m                            
+                         : ----------------------------------------------
+CutsSA                   : Cut values for requested signal efficiency: 0.1
+                         : Corresponding background efficiency       : 0.0040625
+                         : Transformation applied to input variables : None
+                         : ----------------------------------------------
+                         : Cut[ 0]:  -0.205194 <     dedx_1 <=    34.3571
+                         : Cut[ 1]:   -1.56425 <      eta_1 <=    3.96946
+                         : Cut[ 2]:    0.15748 < momentum_1 <=    2.06328
+                         : Cut[ 3]:    4.09539 <     dedx_2 <=    9.27721
+                         : Cut[ 4]:   -2.96769 <      eta_2 <=    3.53917
+                         : Cut[ 5]:   0.574386 < momentum_2 <=    1.56435
+                         : ----------------------------------------------
+                         : ----------------------------------------------
+CutsSA                   : Cut values for requested signal efficiency: 0.2
+                         : Corresponding background efficiency       : 0.0102
+                         : Transformation applied to input variables : None
+                         : ----------------------------------------------
+                         : Cut[ 0]: -0.0509083 <     dedx_1 <=    19.4303
+                         : Cut[ 1]:   -1.98607 <      eta_1 <=    2.62669
+                         : Cut[ 2]:  0.0603955 < momentum_1 <=    2.05121
+                         : Cut[ 3]:    3.67491 <     dedx_2 <=    36.8563
+                         : Cut[ 4]:   -1.66532 <      eta_2 <=    4.91417
+                         : Cut[ 5]:   0.544754 < momentum_2 <=    1.90014
+                         : ----------------------------------------------
+                         : ----------------------------------------------
+CutsSA                   : Cut values for requested signal efficiency: 0.3
+                         : Corresponding background efficiency       : 0.0349
+                         : Transformation applied to input variables : None
+                         : ----------------------------------------------
+                         : Cut[ 0]:  -0.176051 <     dedx_1 <=     33.621
+                         : Cut[ 1]:   -1.81177 <      eta_1 <=    5.42774
+                         : Cut[ 2]:  0.0414143 < momentum_1 <=    3.02382
+                         : Cut[ 3]:    3.44971 <     dedx_2 <=    15.7993
+                         : Cut[ 4]:   -3.12192 <      eta_2 <=     2.4914
+                         : Cut[ 5]:   0.417623 < momentum_2 <=    1.89684
+                         : ----------------------------------------------
+                         : ----------------------------------------------
+CutsSA                   : Cut values for requested signal efficiency: 0.4
+                         : Corresponding background efficiency       : 0.106362
+                         : Transformation applied to input variables : None
+                         : ----------------------------------------------
+                         : Cut[ 0]:  -0.362991 <     dedx_1 <=    28.0431
+                         : Cut[ 1]:   -1.91414 <      eta_1 <=    3.17193
+                         : Cut[ 2]:   0.238048 < momentum_1 <=    2.90034
+                         : Cut[ 3]:    3.12917 <     dedx_2 <=    30.5083
+                         : Cut[ 4]:   -2.21462 <      eta_2 <=    4.30869
+                         : Cut[ 5]:   0.432172 < momentum_2 <=    1.86377
+                         : ----------------------------------------------
+                         : ----------------------------------------------
+CutsSA                   : Cut values for requested signal efficiency: 0.5
+                         : Corresponding background efficiency       : 0.18405
+                         : Transformation applied to input variables : None
+                         : ----------------------------------------------
+                         : Cut[ 0]:  -0.305699 <     dedx_1 <=    37.4012
+                         : Cut[ 1]:    -2.1615 <      eta_1 <=    1.98858
+                         : Cut[ 2]:    0.11782 < momentum_1 <=    1.33927
+                         : Cut[ 3]:  -0.159065 <     dedx_2 <=    15.4497
+                         : Cut[ 4]:   -2.19653 <      eta_2 <=    2.08995
+                         : Cut[ 5]:    0.60249 < momentum_2 <=    2.56025
+                         : ----------------------------------------------
+                         : ----------------------------------------------
+CutsSA                   : Cut values for requested signal efficiency: 0.6
+                         : Corresponding background efficiency       : 0.251837
+                         : Transformation applied to input variables : None
+                         : ----------------------------------------------
+                         : Cut[ 0]:  -0.130401 <     dedx_1 <=    20.7958
+                         : Cut[ 1]:   -1.58243 <      eta_1 <=    4.25401
+                         : Cut[ 2]:  0.0907075 < momentum_1 <=     2.9325
+                         : Cut[ 3]:  -0.193444 <     dedx_2 <=    27.0059
+                         : Cut[ 4]:   -2.41647 <      eta_2 <=    3.78159
+                         : Cut[ 5]:   0.513616 < momentum_2 <=     2.3441
+                         : ----------------------------------------------
+                         : ----------------------------------------------
+CutsSA                   : Cut values for requested signal efficiency: 0.7
+                         : Corresponding background efficiency       : 0.331237
+                         : Transformation applied to input variables : None
+                         : ----------------------------------------------
+                         : Cut[ 0]:  -0.073283 <     dedx_1 <=    20.3478
+                         : Cut[ 1]:   -3.01829 <      eta_1 <=    2.63355
+                         : Cut[ 2]:   0.341507 < momentum_1 <=     2.4114
+                         : Cut[ 3]:  -0.090217 <     dedx_2 <=    13.9892
+                         : Cut[ 4]:   -1.54576 <      eta_2 <=    4.96886
+                         : Cut[ 5]:   0.359053 < momentum_2 <=    2.34441
+                         : ----------------------------------------------
+                         : ----------------------------------------------
+CutsSA                   : Cut values for requested signal efficiency: 0.8
+                         : Corresponding background efficiency       : 0.427013
+                         : Transformation applied to input variables : None
+                         : ----------------------------------------------
+                         : Cut[ 0]:  -0.255598 <     dedx_1 <=    26.9276
+                         : Cut[ 1]:   -3.29629 <      eta_1 <=    1.57927
+                         : Cut[ 2]:    0.29031 < momentum_1 <=     3.1969
+                         : Cut[ 3]:  -0.206276 <     dedx_2 <=    28.1024
+                         : Cut[ 4]:   -3.26634 <      eta_2 <=     3.3561
+                         : Cut[ 5]:   0.303128 < momentum_2 <=    2.18616
+                         : ----------------------------------------------
+                         : ----------------------------------------------
+CutsSA                   : Cut values for requested signal efficiency: 0.9
+                         : Corresponding background efficiency       : 0.595625
+                         : Transformation applied to input variables : None
+                         : ----------------------------------------------
+                         : Cut[ 0]:  -0.180118 <     dedx_1 <=    21.2637
+                         : Cut[ 1]:   -2.99153 <      eta_1 <=    3.89389
+                         : Cut[ 2]:   0.236331 < momentum_1 <=    2.77384
+                         : Cut[ 3]:  -0.251562 <     dedx_2 <=    14.8893
+                         : Cut[ 4]:   -2.02179 <      eta_2 <=    3.06313
+                         : Cut[ 5]:   0.262449 < momentum_2 <=    2.16804
+                         : ----------------------------------------------
+                         : Elapsed time for training with 112222 events: [1;31m416 sec[0m         
+CutsSA                   : [dataset_pt0-0.5] : Evaluation of CutsSA on training sample (112222 events)
+                         : Elapsed time for evaluation of 112222 events: [1;31m0.00771 sec[0m       
+                         : Creating xml weight file: [0;36mdataset_pt0-0.5/weights/Phi_BDT_CutsSA.weights.xml[0m
+                         : Creating standalone class: [0;36mdataset_pt0-0.5/weights/Phi_BDT_CutsSA.class.C[0m
+                         : PhiBDT_MCBkg_pt0-0.5.root:/dataset_pt0-0.5/Method_CutsSA/CutsSA
+Factory                  : Training finished
+                         : 
+                         : Ranking input variables (method specific)...
+BDT                      : Ranking result (top variable is best ranked)
+                         : --------------------------------------------
+                         : Rank : Variable   : Variable Importance
+                         : --------------------------------------------
+                         :    1 : eta_1      : 1.909e-01
+                         :    2 : eta_2      : 1.837e-01
+                         :    3 : momentum_2 : 1.791e-01
+                         :    4 : momentum_1 : 1.602e-01
+                         :    5 : dedx_2     : 1.517e-01
+                         :    6 : dedx_1     : 1.343e-01
+                         : --------------------------------------------
+                         : No variable ranking supplied by classifier: CutsSA
+Factory                  : === Destroy and recreate all methods via weight files for testing ===
+                         : 
+                         : Read cuts optimised using Simulated Annealing algorithm
+                         : Reading 100 signal efficiency bins for 6 variables
+Factory                  : [1mTest all methods[0m
+Factory                  : Test method: BDT for Classification performance
+                         : 
+BDT                      : [dataset_pt0-0.5] : Evaluation of BDT on testing sample (112222 events)
+                         : Elapsed time for evaluation of 112222 events: [1;31m5.01 sec[0m       
+Factory                  : Test method: CutsSA for Classification performance
+                         : 
+CutsSA                   : [dataset_pt0-0.5] : Evaluation of CutsSA on testing sample (112222 events)
+                         : Elapsed time for evaluation of 112222 events: [1;31m0.00554 sec[0m       
+Factory                  : [1mEvaluate all methods[0m
+Factory                  : Evaluate classifier: BDT
+                         : 
+BDT                      : [dataset_pt0-0.5] : Loop over test events and fill histograms with classifier response...
+                         : 
+TFHandler_BDT            :   Variable          Mean          RMS   [        Min          Max ]
+                         : ---------------------------------------------------------------------
+                         :     dedx_1:      1.1733      1.8837   [      0.0000      34.061 ]
+                         :      eta_1:    -0.12245      1.3980   [     -3.5740      3.5414 ]
+                         : momentum_1:     0.47257     0.26651   [    0.068116      3.1525 ]
+                         :     dedx_2:      1.8587      2.0877   [      0.0000      26.810 ]
+                         :      eta_2:   -0.040725      1.3955   [     -3.5470      3.5633 ]
+                         : momentum_2:     0.49607     0.29310   [     0.16064      2.5072 ]
+                         : ---------------------------------------------------------------------
+Factory                  : Evaluate classifier: CutsSA
+                         : 
+<WARNING>                : You have asked for histogram MVA_EFF_BvsS which does not seem to exist in *Results* .. better don't use it 
+<WARNING>                : You have asked for histogram EFF_BVSS_TR which does not seem to exist in *Results* .. better don't use it 
+TFHandler_CutsSA         :   Variable          Mean          RMS   [        Min          Max ]
+                         : ---------------------------------------------------------------------
+                         :     dedx_1:      1.1733      1.8837   [      0.0000      34.061 ]
+                         :      eta_1:    -0.12245      1.3980   [     -3.5740      3.5414 ]
+                         : momentum_1:     0.47257     0.26651   [    0.068116      3.1525 ]
+                         :     dedx_2:      1.8587      2.0877   [      0.0000      26.810 ]
+                         :      eta_2:   -0.040725      1.3955   [     -3.5470      3.5633 ]
+                         : momentum_2:     0.49607     0.29310   [     0.16064      2.5072 ]
+                         : ---------------------------------------------------------------------
+                         : 
+                         : Evaluation results ranked by best signal efficiency and purity (area)
+                         : -------------------------------------------------------------------------------------------------------------------
+                         : DataSet       MVA                       
+                         : Name:         Method:          ROC-integ
+                         : dataset_pt0-0.5 BDT            : 0.900
+                         : dataset_pt0-0.5 CutsSA         : 0.764
+                         : -------------------------------------------------------------------------------------------------------------------
+                         : 
+                         : Testing efficiency compared to training efficiency (overtraining check)
+                         : -------------------------------------------------------------------------------------------------------------------
+                         : DataSet              MVA              Signal efficiency: from test sample (from training sample) 
+                         : Name:                Method:          @B=0.01             @B=0.10            @B=0.30   
+                         : -------------------------------------------------------------------------------------------------------------------
+                         : dataset_pt0-0.5      BDT            : 0.343 (0.334)       0.703 (0.700)      0.896 (0.896)
+                         : dataset_pt0-0.5      CutsSA         : 0.204 (0.200)       0.390 (0.398)      0.665 (0.666)
+                         : -------------------------------------------------------------------------------------------------------------------
+                         : 
+Dataset:dataset_pt0-0.5  : Created tree 'TestTree' with 112222 events
+                         : 
+Dataset:dataset_pt0-0.5  : Created tree 'TrainTree' with 112222 events
+                         : 
+Factory                  : [1mThank you for using TMVA![0m
+                         : [1mFor citation information, please visit: http://tmva.sf.net/citeTMVA.html[0m
+DataSetInfo              : [dataset_pt0.5-1] : Added class "Signal"
+                         : Add Tree SignalTree of type Signal with 5235606 events
+DataSetInfo              : [dataset_pt0.5-1] : Added class "Background"
+                         : Add Tree BackgroundTree of type Background with 20872998 events
+                         : Dataset[dataset_pt0.5-1] : Class index : 0  name : Signal
+                         : Dataset[dataset_pt0.5-1] : Class index : 1  name : Background
+Factory                  : Booking method: [1mBDT[0m
+                         : 
+                         : Parsing option string: 
+                         : ... "nTrain_Signal=60000:nTrain_Background=80000:nTest_Signal=60000:nTest_Background=80000:SplitMode=Random:NormMode=NumEvents:V"
+                         : The following options are set:
+                         : - By User:
+                         :     SplitMode: "Random" [Method of picking training and testing events (default: random)]
+                         :     NormMode: "NumEvents" [Overall renormalisation of  event-by-event weights used in the training (NumEvents: average weight of 1 per event, independently for signal and background; EqualNumEvents: average weight of 1 per event for signal, and sum of weights for background equal to sum of weights for signal)]
+                         :     nTrain_Signal: "60000" [Number of training events of class Signal (default: 0 = all)]
+                         :     nTest_Signal: "60000" [Number of test events of class Signal (default: 0 = all)]
+                         :     nTrain_Background: "80000" [Number of training events of class Background (default: 0 = all)]
+                         :     nTest_Background: "80000" [Number of test events of class Background (default: 0 = all)]
+                         :     V: "True" [Verbosity (default: true)]
+                         : - Default:
+                         :     MixMode: "SameAsSplitMode" [Method of mixing events of different classes into one dataset (default: SameAsSplitMode)]
+                         :     SplitSeed: "100" [Seed for random event shuffling]
+                         :     ScaleWithPreselEff: "False" [Scale the number of requested events by the eff. of the preselection cuts (or not)]
+                         :     TrainTestSplit_Signal: "0.000000e+00" [Number of test events of class Signal (default: 0 = all)]
+                         :     TrainTestSplit_Background: "0.000000e+00" [Number of test events of class Background (default: 0 = all)]
+                         :     VerboseLevel: "Info" [VerboseLevel (Debug/Verbose/Info)]
+                         :     Correlations: "True" [Boolean to show correlation output (Default: true)]

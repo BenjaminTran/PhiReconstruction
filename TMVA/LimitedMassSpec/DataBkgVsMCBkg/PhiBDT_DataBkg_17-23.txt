@@ -1,0 +1,384 @@
+
+Processing PhiBDT.cc...
+DataSetInfo              : [dataset] : Added class "Signal"
+                         : Add Tree SignalTree of type Signal with 196065 events
+DataSetInfo              : [dataset] : Added class "Background"
+                         : Add Tree PhiKaonTree of type Background with 1025444 events
+                         : Dataset[dataset] : Class index : 0  name : Signal
+                         : Dataset[dataset] : Class index : 1  name : Background
+Factory                  : Booking method: [1mBDT[0m
+                         : 
+                         : Parsing option string: 
+                         : ... "nTrain_Signal=80000:nTrain_Background=80000:nTest_Signal=120000:nTest_Background=120000:SplitMode=Random:NormMode=NumEvents:V"
+                         : The following options are set:
+                         : - By User:
+                         :     SplitMode: "Random" [Method of picking training and testing events (default: random)]
+                         :     NormMode: "NumEvents" [Overall renormalisation of  event-by-event weights used in the training (NumEvents: average weight of 1 per event, independently for signal and background; EqualNumEvents: average weight of 1 per event for signal, and sum of weights for background equal to sum of weights for signal)]
+                         :     nTrain_Signal: "80000" [Number of training events of class Signal (default: 0 = all)]
+                         :     nTest_Signal: "120000" [Number of test events of class Signal (default: 0 = all)]
+                         :     nTrain_Background: "80000" [Number of training events of class Background (default: 0 = all)]
+                         :     nTest_Background: "120000" [Number of test events of class Background (default: 0 = all)]
+                         :     V: "True" [Verbosity (default: true)]
+                         : - Default:
+                         :     MixMode: "SameAsSplitMode" [Method of mixing events of different classes into one dataset (default: SameAsSplitMode)]
+                         :     SplitSeed: "100" [Seed for random event shuffling]
+                         :     ScaleWithPreselEff: "False" [Scale the number of requested events by the eff. of the preselection cuts (or not)]
+                         :     TrainTestSplit_Signal: "0.000000e+00" [Number of test events of class Signal (default: 0 = all)]
+                         :     TrainTestSplit_Background: "0.000000e+00" [Number of test events of class Background (default: 0 = all)]
+                         :     VerboseLevel: "Info" [VerboseLevel (Debug/Verbose/Info)]
+                         :     Correlations: "True" [Boolean to show correlation output (Default: true)]
+DataSetFactory           : [dataset] : Number of events in input trees
+                         : 
+                         : 
+                         : Number of training and testing events
+                         : ---------------------------------------------------------------------------
+                         : Signal     -- training events            : 80000
+                         : Signal     -- testing events             : 116065
+                         : Signal     -- training and testing events: 196065
+                         : Background -- training events            : 80000
+                         : Background -- testing events             : 120000
+                         : Background -- training and testing events: 200000
+                         : 
+DataSetInfo              : Correlation matrix (Signal):
+                         : -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                         :                         fabs(pt_1/ptError_1) fabs(dz_1/dzError_1) fabs(dxy_1/dxyError_1) rapidity_1 nhits_1  dedx_1   eta_1 momentum_1 fabs(pt_2/ptError_2) fabs(dz_2/dzError_2) fabs(dxy_2/dxyError_2) rapidity_2 nhits_2  dedx_2   eta_2 momentum_2
+                         :   fabs(pt_1/ptError_1):               +1.000               -0.006                 +0.012     +0.024  +0.375  +0.493  +0.003     -0.214               +0.540               -0.007                 -0.008     +0.024  -0.076  +0.112  -0.001     -0.224
+                         :   fabs(dz_1/dzError_1):               -0.006               +1.000                 +0.391     +0.008  +0.006  +0.002  -0.002     +0.006               -0.007               +0.003                 +0.003     +0.009  +0.001  +0.000  -0.002     +0.009
+                         : fabs(dxy_1/dxyError_1):               +0.012               +0.391                 +1.000     +0.009  +0.027  +0.028  -0.002     +0.014               -0.006               -0.001                 +0.000     +0.008  +0.005  +0.005  -0.004     +0.017
+                         :             rapidity_1:               +0.024               +0.008                 +0.009     +1.000  -0.009  +0.009  +0.002     -0.027               +0.032               -0.003                 -0.001     +0.987  +0.004  +0.016  +0.005     -0.021
+                         :                nhits_1:               +0.375               +0.006                 +0.027     -0.009  +1.000  +0.340  +0.014     +0.244               -0.073               -0.004                 -0.002     -0.008  +0.165  -0.068  -0.001     +0.234
+                         :                 dedx_1:               +0.493               +0.002                 +0.028     +0.009  +0.340  +1.000  +0.011     -0.069               +0.133               -0.001                 -0.001     +0.010  -0.043  +0.051  +0.008     -0.071
+                         :                  eta_1:               +0.003               -0.002                 -0.002     +0.002  +0.014  +0.011  +1.000     +0.020               +0.006               -0.003                 -0.003     +0.003  +0.020  +0.020  +0.841     +0.024
+                         :             momentum_1:               -0.214               +0.006                 +0.014     -0.027  +0.244  -0.069  +0.020     +1.000               -0.224               -0.002                 +0.001     -0.025  +0.204  -0.109  -0.004     +0.902
+                         :   fabs(pt_2/ptError_2):               +0.540               -0.007                 -0.006     +0.032  -0.073  +0.133  +0.006     -0.224               +1.000               -0.003                 -0.003     +0.033  +0.345  +0.408  +0.010     -0.210
+                         :   fabs(dz_2/dzError_2):               -0.007               +0.003                 -0.001     -0.003  -0.004  -0.001  -0.003     -0.002               -0.003               +1.000                 +0.960     -0.002  +0.009  +0.003  -0.005     -0.003
+                         : fabs(dxy_2/dxyError_2):               -0.008               +0.003                 +0.000     -0.001  -0.002  -0.001  -0.003     +0.001               -0.003               +0.960                 +1.000     -0.001  +0.011  +0.007  -0.005     -0.000
+                         :             rapidity_2:               +0.024               +0.009                 +0.008     +0.987  -0.008  +0.010  +0.003     -0.025               +0.033               -0.002                 -0.001     +1.000  +0.006  +0.017  +0.006     -0.022
+                         :                nhits_2:               -0.076               +0.001                 +0.005     +0.004  +0.165  -0.043  +0.020     +0.204               +0.345               +0.009                 +0.011     +0.006  +1.000  +0.253  +0.012     +0.220
+                         :                 dedx_2:               +0.112               +0.000                 +0.005     +0.016  -0.068  +0.051  +0.020     -0.109               +0.408               +0.003                 +0.007     +0.017  +0.253  +1.000  +0.020     -0.114
+                         :                  eta_2:               -0.001               -0.002                 -0.004     +0.005  -0.001  +0.008  +0.841     -0.004               +0.010               -0.005                 -0.005     +0.006  +0.012  +0.020  +1.000     +0.002
+                         :             momentum_2:               -0.224               +0.009                 +0.017     -0.021  +0.234  -0.071  +0.024     +0.902               -0.210               -0.003                 -0.000     -0.022  +0.220  -0.114  +0.002     +1.000
+                         : -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DataSetInfo              : Correlation matrix (Background):
+                         : -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                         :                         fabs(pt_1/ptError_1) fabs(dz_1/dzError_1) fabs(dxy_1/dxyError_1) rapidity_1 nhits_1  dedx_1   eta_1 momentum_1 fabs(pt_2/ptError_2) fabs(dz_2/dzError_2) fabs(dxy_2/dxyError_2) rapidity_2 nhits_2  dedx_2   eta_2 momentum_2
+                         :   fabs(pt_1/ptError_1):               +1.000               +0.072                 +0.025     -0.066  +0.413  +0.395  -0.007     -0.138               +0.355               +0.039                 -0.001     -0.064  -0.047  +0.059  -0.010     -0.178
+                         :   fabs(dz_1/dzError_1):               +0.072               +1.000                 +0.621     -0.015  +0.025  +0.091  +0.005     -0.016               +0.043               +0.097                 -0.000     -0.014  -0.004  +0.009  +0.002     -0.023
+                         : fabs(dxy_1/dxyError_1):               +0.025               +0.621                 +1.000     +0.002  +0.057  +0.096  +0.009     +0.030               -0.004               -0.001                 +0.002     +0.004  +0.026  +0.009  +0.008     +0.028
+                         :             rapidity_1:               -0.066               -0.015                 +0.002     +1.000  +0.094  +0.040  +0.012     +0.148               -0.084               -0.010                 +0.011     +0.972  +0.075  +0.021  +0.011     +0.141
+                         :                nhits_1:               +0.413               +0.025                 +0.057     +0.094  +1.000  +0.498  +0.023     +0.343               -0.117               -0.006                 +0.024     +0.090  +0.229  +0.078  +0.019     +0.309
+                         :                 dedx_1:               +0.395               +0.091                 +0.096     +0.040  +0.498  +1.000  +0.032     +0.211               +0.010               +0.003                 +0.014     +0.038  +0.151  +0.080  +0.025     +0.174
+                         :                  eta_1:               -0.007               +0.005                 +0.009     +0.012  +0.023  +0.032  +1.000     +0.036               +0.008               +0.002                 +0.002     +0.011  +0.039  +0.041  +0.695     +0.037
+                         :             momentum_1:               -0.138               -0.016                 +0.030     +0.148  +0.343  +0.211  +0.036     +1.000               -0.249               -0.021                 +0.031     +0.142  +0.263  +0.069  +0.032     +0.882
+                         :   fabs(pt_2/ptError_2):               +0.355               +0.043                 -0.004     -0.084  -0.117  +0.010  +0.008     -0.249               +1.000               +0.061                 +0.008     -0.087  +0.373  +0.382  +0.009     -0.216
+                         :   fabs(dz_2/dzError_2):               +0.039               +0.097                 -0.001     -0.010  -0.006  +0.003  +0.002     -0.021               +0.061               +1.000                 +0.617     -0.010  +0.002  +0.020  +0.002     -0.018
+                         : fabs(dxy_2/dxyError_2):               -0.001               -0.000                 +0.002     +0.011  +0.024  +0.014  +0.002     +0.031               +0.008               +0.617                 +1.000     +0.012  +0.034  +0.032  +0.002     +0.036
+                         :             rapidity_2:               -0.064               -0.014                 +0.004     +0.972  +0.090  +0.038  +0.011     +0.142               -0.087               -0.010                 +0.012     +1.000  +0.076  +0.022  +0.011     +0.147
+                         :                nhits_2:               -0.047               -0.004                 +0.026     +0.075  +0.229  +0.151  +0.039     +0.263               +0.373               +0.002                 +0.034     +0.076  +1.000  +0.398  +0.038     +0.295
+                         :                 dedx_2:               +0.059               +0.009                 +0.009     +0.021  +0.078  +0.080  +0.041     +0.069               +0.382               +0.020                 +0.032     +0.022  +0.398  +1.000  +0.044     +0.093
+                         :                  eta_2:               -0.010               +0.002                 +0.008     +0.011  +0.019  +0.025  +0.695     +0.032               +0.009               +0.002                 +0.002     +0.011  +0.038  +0.044  +1.000     +0.034
+                         :             momentum_2:               -0.178               -0.023                 +0.028     +0.141  +0.309  +0.174  +0.037     +0.882               -0.216               -0.018                 +0.036     +0.147  +0.295  +0.093  +0.034     +1.000
+                         : -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DataSetFactory           : [dataset] :  
+                         : 
+Factory                  : [1mTrain all methods[0m
+Factory                  : [dataset] : Create Transformation "I" with events from all classes.
+                         : 
+                         : Transformation, Variable selection : 
+                         : Input : variable 'fabs(pt_1/ptError_1)' <---> Output : variable 'fabs(pt_1/ptError_1)'
+                         : Input : variable 'fabs(dz_1/dzError_1)' <---> Output : variable 'fabs(dz_1/dzError_1)'
+                         : Input : variable 'fabs(dxy_1/dxyError_1)' <---> Output : variable 'fabs(dxy_1/dxyError_1)'
+                         : Input : variable 'rapidity_1' <---> Output : variable 'rapidity_1'
+                         : Input : variable 'nhits_1' <---> Output : variable 'nhits_1'
+                         : Input : variable 'dedx_1' <---> Output : variable 'dedx_1'
+                         : Input : variable 'eta_1' <---> Output : variable 'eta_1'
+                         : Input : variable 'momentum_1' <---> Output : variable 'momentum_1'
+                         : Input : variable 'fabs(pt_2/ptError_2)' <---> Output : variable 'fabs(pt_2/ptError_2)'
+                         : Input : variable 'fabs(dz_2/dzError_2)' <---> Output : variable 'fabs(dz_2/dzError_2)'
+                         : Input : variable 'fabs(dxy_2/dxyError_2)' <---> Output : variable 'fabs(dxy_2/dxyError_2)'
+                         : Input : variable 'rapidity_2' <---> Output : variable 'rapidity_2'
+                         : Input : variable 'nhits_2' <---> Output : variable 'nhits_2'
+                         : Input : variable 'dedx_2' <---> Output : variable 'dedx_2'
+                         : Input : variable 'eta_2' <---> Output : variable 'eta_2'
+                         : Input : variable 'momentum_2' <---> Output : variable 'momentum_2'
+Factory                  : [dataset] : Create Transformation "D" with events from all classes.
+                         : 
+                         : Transformation, Variable selection : 
+                         : Input : variable 'fabs(pt_1/ptError_1)' <---> Output : variable 'fabs(pt_1/ptError_1)'
+                         : Input : variable 'fabs(dz_1/dzError_1)' <---> Output : variable 'fabs(dz_1/dzError_1)'
+                         : Input : variable 'fabs(dxy_1/dxyError_1)' <---> Output : variable 'fabs(dxy_1/dxyError_1)'
+                         : Input : variable 'rapidity_1' <---> Output : variable 'rapidity_1'
+                         : Input : variable 'nhits_1' <---> Output : variable 'nhits_1'
+                         : Input : variable 'dedx_1' <---> Output : variable 'dedx_1'
+                         : Input : variable 'eta_1' <---> Output : variable 'eta_1'
+                         : Input : variable 'momentum_1' <---> Output : variable 'momentum_1'
+                         : Input : variable 'fabs(pt_2/ptError_2)' <---> Output : variable 'fabs(pt_2/ptError_2)'
+                         : Input : variable 'fabs(dz_2/dzError_2)' <---> Output : variable 'fabs(dz_2/dzError_2)'
+                         : Input : variable 'fabs(dxy_2/dxyError_2)' <---> Output : variable 'fabs(dxy_2/dxyError_2)'
+                         : Input : variable 'rapidity_2' <---> Output : variable 'rapidity_2'
+                         : Input : variable 'nhits_2' <---> Output : variable 'nhits_2'
+                         : Input : variable 'dedx_2' <---> Output : variable 'dedx_2'
+                         : Input : variable 'eta_2' <---> Output : variable 'eta_2'
+                         : Input : variable 'momentum_2' <---> Output : variable 'momentum_2'
+Factory                  : [dataset] : Create Transformation "P" with events from all classes.
+                         : 
+                         : Transformation, Variable selection : 
+                         : Input : variable 'fabs(pt_1/ptError_1)' <---> Output : variable 'fabs(pt_1/ptError_1)'
+                         : Input : variable 'fabs(dz_1/dzError_1)' <---> Output : variable 'fabs(dz_1/dzError_1)'
+                         : Input : variable 'fabs(dxy_1/dxyError_1)' <---> Output : variable 'fabs(dxy_1/dxyError_1)'
+                         : Input : variable 'rapidity_1' <---> Output : variable 'rapidity_1'
+                         : Input : variable 'nhits_1' <---> Output : variable 'nhits_1'
+                         : Input : variable 'dedx_1' <---> Output : variable 'dedx_1'
+                         : Input : variable 'eta_1' <---> Output : variable 'eta_1'
+                         : Input : variable 'momentum_1' <---> Output : variable 'momentum_1'
+                         : Input : variable 'fabs(pt_2/ptError_2)' <---> Output : variable 'fabs(pt_2/ptError_2)'
+                         : Input : variable 'fabs(dz_2/dzError_2)' <---> Output : variable 'fabs(dz_2/dzError_2)'
+                         : Input : variable 'fabs(dxy_2/dxyError_2)' <---> Output : variable 'fabs(dxy_2/dxyError_2)'
+                         : Input : variable 'rapidity_2' <---> Output : variable 'rapidity_2'
+                         : Input : variable 'nhits_2' <---> Output : variable 'nhits_2'
+                         : Input : variable 'dedx_2' <---> Output : variable 'dedx_2'
+                         : Input : variable 'eta_2' <---> Output : variable 'eta_2'
+                         : Input : variable 'momentum_2' <---> Output : variable 'momentum_2'
+Factory                  : [dataset] : Create Transformation "G" with events from all classes.
+                         : 
+                         : Transformation, Variable selection : 
+                         : Input : variable 'fabs(pt_1/ptError_1)' <---> Output : variable 'fabs(pt_1/ptError_1)'
+                         : Input : variable 'fabs(dz_1/dzError_1)' <---> Output : variable 'fabs(dz_1/dzError_1)'
+                         : Input : variable 'fabs(dxy_1/dxyError_1)' <---> Output : variable 'fabs(dxy_1/dxyError_1)'
+                         : Input : variable 'rapidity_1' <---> Output : variable 'rapidity_1'
+                         : Input : variable 'nhits_1' <---> Output : variable 'nhits_1'
+                         : Input : variable 'dedx_1' <---> Output : variable 'dedx_1'
+                         : Input : variable 'eta_1' <---> Output : variable 'eta_1'
+                         : Input : variable 'momentum_1' <---> Output : variable 'momentum_1'
+                         : Input : variable 'fabs(pt_2/ptError_2)' <---> Output : variable 'fabs(pt_2/ptError_2)'
+                         : Input : variable 'fabs(dz_2/dzError_2)' <---> Output : variable 'fabs(dz_2/dzError_2)'
+                         : Input : variable 'fabs(dxy_2/dxyError_2)' <---> Output : variable 'fabs(dxy_2/dxyError_2)'
+                         : Input : variable 'rapidity_2' <---> Output : variable 'rapidity_2'
+                         : Input : variable 'nhits_2' <---> Output : variable 'nhits_2'
+                         : Input : variable 'dedx_2' <---> Output : variable 'dedx_2'
+                         : Input : variable 'eta_2' <---> Output : variable 'eta_2'
+                         : Input : variable 'momentum_2' <---> Output : variable 'momentum_2'
+Factory                  : [dataset] : Create Transformation "D" with events from all classes.
+                         : 
+                         : Transformation, Variable selection : 
+                         : Input : variable 'fabs(pt_1/ptError_1)' <---> Output : variable 'fabs(pt_1/ptError_1)'
+                         : Input : variable 'fabs(dz_1/dzError_1)' <---> Output : variable 'fabs(dz_1/dzError_1)'
+                         : Input : variable 'fabs(dxy_1/dxyError_1)' <---> Output : variable 'fabs(dxy_1/dxyError_1)'
+                         : Input : variable 'rapidity_1' <---> Output : variable 'rapidity_1'
+                         : Input : variable 'nhits_1' <---> Output : variable 'nhits_1'
+                         : Input : variable 'dedx_1' <---> Output : variable 'dedx_1'
+                         : Input : variable 'eta_1' <---> Output : variable 'eta_1'
+                         : Input : variable 'momentum_1' <---> Output : variable 'momentum_1'
+                         : Input : variable 'fabs(pt_2/ptError_2)' <---> Output : variable 'fabs(pt_2/ptError_2)'
+                         : Input : variable 'fabs(dz_2/dzError_2)' <---> Output : variable 'fabs(dz_2/dzError_2)'
+                         : Input : variable 'fabs(dxy_2/dxyError_2)' <---> Output : variable 'fabs(dxy_2/dxyError_2)'
+                         : Input : variable 'rapidity_2' <---> Output : variable 'rapidity_2'
+                         : Input : variable 'nhits_2' <---> Output : variable 'nhits_2'
+                         : Input : variable 'dedx_2' <---> Output : variable 'dedx_2'
+                         : Input : variable 'eta_2' <---> Output : variable 'eta_2'
+                         : Input : variable 'momentum_2' <---> Output : variable 'momentum_2'
+TFHandler_Factory        :               Variable                      Mean                      RMS              [        Min                      Max ]
+                         : ---------------------------------------------------------------------------------------------------------------------------------
+                         :   fabs(pt_1/ptError_1):                  64.388                  33.917   [                  1.4456                  275.09 ]
+                         :   fabs(dz_1/dzError_1):                  9.0722                  65.718   [              1.2044e-05                  5431.7 ]
+                         : fabs(dxy_1/dxyError_1):                  2.6007                  22.887   [              2.8272e-05                  4088.6 ]
+                         :             rapidity_1:                0.067435                  1.1012   [                 -2.5829                  2.5062 ]
+                         :                nhits_1:                  12.871                  6.7741   [                  3.0000                  54.000 ]
+                         :                 dedx_1:                  2.7490                  1.5475   [                  0.0000                  18.461 ]
+                         :                  eta_1:               -0.062750                  1.1612   [                 -3.5031                  3.4943 ]
+                         :             momentum_1:                  1.5187                  1.4732   [                 0.12955                  53.802 ]
+                         :   fabs(pt_2/ptError_2):                  65.469                  33.330   [                  1.4271                  369.87 ]
+                         :   fabs(dz_2/dzError_2):                  7.7289                  63.867   [              2.9672e-06                  10598. ]
+                         : fabs(dxy_2/dxyError_2):                  2.2751                  21.586   [              1.3002e-05                  4832.0 ]
+                         :             rapidity_2:                0.068016                  1.1100   [                 -2.6457                  2.6043 ]
+                         :                nhits_2:                  12.970                  6.4712   [                  3.0000                  64.000 ]
+                         :                 dedx_2:                  2.9212                  1.4574   [                  0.0000                  26.966 ]
+                         :                  eta_2:               -0.024758                  1.1632   [                 -3.4669                  3.4351 ]
+                         :             momentum_2:                  1.5089                  1.4780   [                 0.16426                  57.546 ]
+                         : ---------------------------------------------------------------------------------------------------------------------------------
+                         : Preparing the Decorrelation transformation...
+TFHandler_Factory        :               Variable                      Mean                      RMS              [        Min                      Max ]
+                         : ---------------------------------------------------------------------------------------------------------------------------------
+                         :   fabs(pt_1/ptError_1):                  1.4836                  1.0000   [                 -1.5052                  8.4029 ]
+                         :   fabs(dz_1/dzError_1):                 0.10162                  1.0000   [                 -9.2765                  71.650 ]
+                         : fabs(dxy_1/dxyError_1):                0.068257                  1.0000   [                 -19.113                  177.28 ]
+                         :             rapidity_1:                0.061070                  1.0000   [                 -4.9482                  4.5413 ]
+                         :                nhits_1:                  1.3827                  1.0000   [                 -2.0633                  7.7520 ]
+                         :                 dedx_1:                 0.75654                  1.0000   [                 -6.4849                  13.259 ]
+                         :                  eta_1:                -0.13024                  1.0000   [                 -5.5694                  5.5802 ]
+                         :             momentum_1:                 0.65465                  1.0000   [                 -3.9226                  34.069 ]
+                         :   fabs(pt_2/ptError_2):                  1.6053                  1.0000   [                 -2.6143                  11.965 ]
+                         :   fabs(dz_2/dzError_2):                0.087797                  1.0000   [                 -6.8618                  149.97 ]
+                         : fabs(dxy_2/dxyError_2):                0.072367                  1.0000   [                 -18.276                  230.32 ]
+                         :             rapidity_2:                0.050616                  1.0000   [                 -5.2655                  4.4493 ]
+                         :                nhits_2:                  1.3838                  1.0000   [                 -1.7800                  9.9731 ]
+                         :                 dedx_2:                  1.1339                  1.0000   [                 -3.3920                  20.149 ]
+                         :                  eta_2:               -0.065279                  1.0000   [                 -5.5657                  5.5155 ]
+                         :             momentum_2:                 0.62476                  1.0000   [                 -4.8801                  34.059 ]
+                         : ---------------------------------------------------------------------------------------------------------------------------------
+                         : Preparing the Principle Component (PCA) transformation...
+TFHandler_Factory        :               Variable                      Mean                      RMS              [        Min                      Max ]
+                         : ---------------------------------------------------------------------------------------------------------------------------------
+                         :   fabs(pt_1/ptError_1):              1.1047e-10                  69.690   [                 -6674.8                  15.010 ]
+                         :   fabs(dz_1/dzError_1):             -4.5005e-09                  63.082   [                 -8970.7                  3593.7 ]
+                         : fabs(dxy_1/dxyError_1):              4.0917e-09                  40.505   [                 -224.14                  265.28 ]
+                         :             rapidity_1:             -7.5957e-10                  25.260   [                 -200.04                  145.75 ]
+                         :                nhits_1:              7.0717e-10                  17.621   [                 -2664.9                  464.80 ]
+                         :                 dedx_1:              1.0613e-09                  15.656   [                 -866.89                  3105.3 ]
+                         :                  eta_1:              1.2597e-09                  7.1157   [                 -58.231                  35.325 ]
+                         :             momentum_1:              1.7026e-10                  4.2127   [                 -31.440                  20.798 ]
+                         :   fabs(pt_2/ptError_2):              1.0791e-10                  1.7916   [                 -4.4348                  73.495 ]
+                         :   fabs(dz_2/dzError_2):              6.6856e-11                  1.5537   [                 -9.0160                  4.3282 ]
+                         : fabs(dxy_2/dxyError_2):              5.4512e-11                  1.5374   [                 -4.7438                  7.1943 ]
+                         :             rapidity_2:              1.0170e-11                  1.3397   [                 -6.4423                  16.516 ]
+                         :                nhits_2:              5.2430e-11                  1.2469   [                 -13.272                  18.057 ]
+                         :                 dedx_2:              3.1934e-11                 0.57866   [                 -4.5410                  4.5106 ]
+                         :                  eta_2:             -3.9044e-11                 0.44794   [                 -9.9046                  11.697 ]
+                         :             momentum_2:              1.6588e-11                 0.15094   [                -0.95598                 0.89270 ]
+                         : ---------------------------------------------------------------------------------------------------------------------------------
+                         : Preparing the Gaussian transformation...
+                         : Preparing the Decorrelation transformation...
+TFHandler_Factory        :               Variable                      Mean                      RMS              [        Min                      Max ]
+                         : ---------------------------------------------------------------------------------------------------------------------------------
+                         :   fabs(pt_1/ptError_1):                 0.22563                  1.0000   [                 -4.0376                  8.6244 ]
+                         :   fabs(dz_1/dzError_1):                0.034192                  1.0000   [                 -2.2010                  5.9499 ]
+                         : fabs(dxy_1/dxyError_1):                0.030271                  1.0000   [                 -2.6685                  5.2702 ]
+                         :             rapidity_1:               0.0091599                  1.0000   [                 -9.0541                  13.463 ]
+                         :                nhits_1:                -0.26646                  1.0000   [                 -4.3848                  4.5544 ]
+                         :                 dedx_1:                -0.35731                  1.0000   [                 -3.3919                  5.0255 ]
+                         :                  eta_1:               0.0098503                  1.0000   [                 -6.7566                  8.9935 ]
+                         :             momentum_1:                 0.13240                  1.0000   [                 -4.5469                  8.1993 ]
+                         :   fabs(pt_2/ptError_2):                0.090338                  1.0000   [                 -3.3212                  7.8046 ]
+                         :   fabs(dz_2/dzError_2):                 0.21050                  1.0000   [                 -1.5477                  7.3189 ]
+                         : fabs(dxy_2/dxyError_2):               0.0015440                  1.0000   [                 -2.5820                  5.1469 ]
+                         :             rapidity_2:               0.0066228                  1.0000   [                 -7.7355                  14.498 ]
+                         :                nhits_2:                -0.18095                  1.0000   [                 -4.5617                  4.8539 ]
+                         :                 dedx_2:                -0.27031                  1.0000   [                 -3.6064                  5.1515 ]
+                         :                  eta_2:                0.012609                  1.0000   [                 -6.3273                  9.1393 ]
+                         :             momentum_2:                0.094682                  1.0000   [                 -4.4953                  4.9729 ]
+                         : ---------------------------------------------------------------------------------------------------------------------------------
+                         : Ranking input variables (method unspecific)...
+IdTransformation         : Ranking result (top variable is best ranked)
+                         : --------------------------------------------
+                         : Rank : Variable            : Separation
+                         : --------------------------------------------
+                         :    1 : momentum_1          : 1.653e-01
+                         :    2 : momentum_2          : 1.443e-01
+                         :    3 : DCA z1              : 5.679e-02
+                         :    4 : nhits_1             : 5.294e-02
+                         :    5 : dedx_1              : 4.962e-02
+                         :    6 : rapidity_2          : 4.852e-02
+                         :    7 : DCA xy1             : 4.609e-02
+                         :    8 : rapidity_1          : 4.481e-02
+                         :    9 : Relative Pt Error 1 : 4.448e-02
+                         :   10 : DCA z2              : 4.060e-02
+                         :   11 : eta_1               : 3.909e-02
+                         :   12 : eta_2               : 3.832e-02
+                         :   13 : nhits_2             : 3.088e-02
+                         :   14 : Relative Pt Error 2 : 2.600e-02
+                         :   15 : dedx_2              : 2.534e-02
+                         :   16 : DCA xy2             : 2.371e-02
+                         : --------------------------------------------
+Factory                  : Train method: BDT for Classification
+                         : 
+BDT                      : #events: (reweighted) sig: 80000 bkg: 80000
+                         : #events: (unweighted) sig: 80000 bkg: 80000
+                         : Training 850 Decision Trees ... patience please
+                         : Elapsed time for training with 160000 events: [1;31m68 sec[0m         
+BDT                      : [dataset] : Evaluation of BDT on training sample (160000 events)
+                         : Elapsed time for evaluation of 160000 events: [1;31m10.1 sec[0m       
+                         : Creating xml weight file: [0;36mdataset/weights/Phi_BDT_BDT.weights.xml[0m
+                         : Creating standalone class: [0;36mdataset/weights/Phi_BDT_BDT.class.C[0m
+                         : PhiBDT_DataBkg_17_23.root:/dataset/Method_BDT/BDT
+Factory                  : Training finished
+                         : 
+                         : Ranking input variables (method specific)...
+BDT                      : Ranking result (top variable is best ranked)
+                         : --------------------------------------------------------
+                         : Rank : Variable               : Variable Importance
+                         : --------------------------------------------------------
+                         :    1 : momentum_1             : 1.260e-01
+                         :    2 : momentum_2             : 1.165e-01
+                         :    3 : dedx_2                 : 1.043e-01
+                         :    4 : dedx_1                 : 8.554e-02
+                         :    5 : eta_2                  : 7.320e-02
+                         :    6 : fabs(pt_1/ptError_1)   : 7.113e-02
+                         :    7 : nhits_1                : 6.936e-02
+                         :    8 : eta_1                  : 6.669e-02
+                         :    9 : fabs(pt_2/ptError_2)   : 6.534e-02
+                         :   10 : rapidity_1             : 6.357e-02
+                         :   11 : rapidity_2             : 5.775e-02
+                         :   12 : nhits_2                : 5.646e-02
+                         :   13 : fabs(dxy_2/dxyError_2) : 2.360e-02
+                         :   14 : fabs(dxy_1/dxyError_1) : 2.052e-02
+                         :   15 : fabs(dz_1/dzError_1)   : 0.000e+00
+                         :   16 : fabs(dz_2/dzError_2)   : 0.000e+00
+                         : --------------------------------------------------------
+Factory                  : === Destroy and recreate all methods via weight files for testing ===
+                         : 
+Factory                  : [1mTest all methods[0m
+Factory                  : Test method: BDT for Classification performance
+                         : 
+BDT                      : [dataset] : Evaluation of BDT on testing sample (236065 events)
+                         : Elapsed time for evaluation of 236065 events: [1;31m9.97 sec[0m       
+Factory                  : [1mEvaluate all methods[0m
+Factory                  : Evaluate classifier: BDT
+                         : 
+BDT                      : [dataset] : Loop over test events and fill histograms with classifier response...
+                         : 
+TFHandler_BDT            :               Variable                      Mean                      RMS              [        Min                      Max ]
+                         : ---------------------------------------------------------------------------------------------------------------------------------
+                         :   fabs(pt_1/ptError_1):                  64.418                  34.016   [                  1.4261                  255.90 ]
+                         :   fabs(dz_1/dzError_1):                  9.3209                  86.920   [              1.9669e-05                  20210. ]
+                         : fabs(dxy_1/dxyError_1):                  2.7458                  46.170   [              1.3726e-07                  11051. ]
+                         :             rapidity_1:                0.068708                  1.1002   [                 -2.7003                  2.6006 ]
+                         :                nhits_1:                  12.864                  6.7699   [                  3.0000                  58.000 ]
+                         :                 dedx_1:                  2.7413                  1.5445   [                  0.0000                  39.048 ]
+                         :                  eta_1:               -0.062232                  1.1611   [                 -3.5621                  3.5502 ]
+                         :             momentum_1:                  1.5095                  1.4281   [                 0.15426                  44.482 ]
+                         :   fabs(pt_2/ptError_2):                  65.479                  33.611   [                  1.2039                  550.28 ]
+                         :   fabs(dz_2/dzError_2):                  7.6987                  51.987   [              5.5125e-06                  4772.2 ]
+                         : fabs(dxy_2/dxyError_2):                  2.2411                  15.500   [              4.1605e-06                  2903.0 ]
+                         :             rapidity_2:                0.069015                  1.1092   [                 -2.7651                  2.6015 ]
+                         :                nhits_2:                  12.993                  6.4992   [                  3.0000                  60.000 ]
+                         :                 dedx_2:                  2.9124                  1.4574   [                  0.0000                  33.528 ]
+                         :                  eta_2:               -0.024480                  1.1650   [                 -3.5608                  3.4976 ]
+                         :             momentum_2:                  1.5010                  1.4364   [                 0.16185                  48.501 ]
+                         : ---------------------------------------------------------------------------------------------------------------------------------
+                         : 
+                         : Evaluation results ranked by best signal efficiency and purity (area)
+                         : -------------------------------------------------------------------------------------------------------------------
+                         : DataSet       MVA                       
+                         : Name:         Method:          ROC-integ
+                         : dataset       BDT            : 0.890
+                         : -------------------------------------------------------------------------------------------------------------------
+                         : 
+                         : Testing efficiency compared to training efficiency (overtraining check)
+                         : -------------------------------------------------------------------------------------------------------------------
+                         : DataSet              MVA              Signal efficiency: from test sample (from training sample) 
+                         : Name:                Method:          @B=0.01             @B=0.10            @B=0.30   
+                         : -------------------------------------------------------------------------------------------------------------------
+                         : dataset              BDT            : 0.174 (0.181)       0.639 (0.642)      0.904 (0.906)
+                         : -------------------------------------------------------------------------------------------------------------------
+                         : 
+Dataset:dataset          : Created tree 'TestTree' with 236065 events
+                         : 
+Dataset:dataset          : Created tree 'TrainTree' with 160000 events
+                         : 
+Factory                  : [1mThank you for using TMVA![0m
+                         : [1mFor citation information, please visit: http://tmva.sf.net/citeTMVA.html[0m
+--- Launch TMVA GUI to view input file: PhiBDT_DataBkg_17_23.root
+--- Launch TMVA GUI to view input file: PhiBDT_DataBkg_17_23.root
+=== Note: inactive buttons indicate classifiers that were not trained, ===
+===       or functionalities that were not invoked during the training ===
+--- Opening root file PhiBDT_DataBkg_17_23.root in read mode
+--- Found directory for method: BDT::BDT containing MVA_BDT_S/_B
+--- Mean and RMS (S): 0.0846613, 0.0899657
+--- Mean and RMS (B): -0.117383, 0.13926
+--- Found comparison histograms for overtraining check
+--- Perform Kolmogorov-Smirnov tests
+--- Goodness of signal (background) consistency: 0.355 (0.012)
+--- --------------------------------------------------------------------
+--- If you want to save the image as eps, gif or png, please comment out 
+--- the corresponding lines (line no. 239-241) in tmvaglob.C
+--- --------------------------------------------------------------------
