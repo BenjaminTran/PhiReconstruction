@@ -153,7 +153,7 @@ namespace utility
             treeStruct.ptError_1  = dau1->getPtError();
             //treeStruct.energy_1   = dau1->getEnergy();
             treeStruct.dedx_1     = dau1->getDedx();
-            //treeStruct.charge_1   = dau1->getCharge();
+            treeStruct.charge_1   = dau1->getCharge();
             treeStruct.dz_1       = dau1->getDz();
             treeStruct.dzError_1  = dau1->getDzError();
             treeStruct.dxy_1      = dau1->getDxy();
@@ -177,7 +177,7 @@ namespace utility
             treeStruct.ptError_2  = dau2->getPtError();
             //treeStruct.energy_2   = dau2->getEnergy();
             treeStruct.dedx_2     = dau2->getDedx();
-            //treeStruct.charge_2   = dau2->getCharge();
+            treeStruct.charge_2   = dau2->getCharge();
             treeStruct.dz_2       = dau2->getDz();
             treeStruct.dzError_2  = dau2->getDzError();
             treeStruct.dxy_2      = dau2->getDxy();

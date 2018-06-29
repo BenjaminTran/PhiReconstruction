@@ -82,7 +82,7 @@ class BDTProof : public TSelector {
                 mass_high = 1.04;
                 mass_numBins = 80;
                 ostringstream ostr;
-                ostr << 0.5 << "-" << 1.0;
+                ostr << 2.5 << "-" << 3.0;
                 pt_bin_range = ostr.str();
             }
 

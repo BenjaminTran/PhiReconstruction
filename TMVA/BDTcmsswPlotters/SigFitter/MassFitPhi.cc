@@ -42,7 +42,7 @@ void MassFitPhi()
     gStyle->SetOptTitle(kFALSE);
 
     std::vector<std::string> file_names = {
-        "/Users/btran/research/Macros/PhiAnalysis/TMVA/BDTcmsswPlotters/BDTPROOF/OutputFiles/PhiBDT_30M_rapLT1_pt0.5-1.root"
+        "/Users/btran/research/PhiReconstruction/TMVA/BDTcmsswPlotters/BDTPROOF/PhiBDT_30M_rapLT1_pt0.5-1.root"
         //"/Users/btran/research/Macros/PhiAnalysis/TMVA/BDTcmsswPlotters/BDTPROOF/Test1-1.5.root"
     };
 
@@ -106,7 +106,7 @@ void MassFitPhi()
             RooRealVar sigma2("sigma2","sigma2",0.003,0.001,0.006);
             RooRealVar sig1("sig1","signal1",2200,0,100000);
             RooRealVar sig2("sig2","signal2",2200,0,100000);
-            RooRealVar qsig("qsig","qsig",2000,0,4000000);
+            RooRealVar qsig("qsig","qsig",4000,0,4000000);
             RooGaussian gaus1("gaus1","gaus1",x,mean,sigma1);
             RooGaussian gaus2("gaus2","gaus2",x,mean,sigma2);
             RooRealVar ap("ap","ap",-0.1,-1,1);

@@ -43,8 +43,8 @@ void PhiBDT(double pt_low = 0, double pt_high = 100, int sigTrainTest=0, int bkg
     TMVA::DataLoader *dataloader = new TMVA::DataLoader(strs.str().c_str());
 
     TMVA::Factory *factory = new TMVA::Factory("Phi_BDT", outputFile, "!V:!Silent:Color:DrawProgressBar:Transformations=I;D;P;G,D:AnalysisType=Classification" );
-    //TMVA::Factory *factory = new TMVA::Factory("Phi_BDT", outputFile, "!V:!Silent:Color:DrawProgressBar:AnalysisType=Classification" );
 
+    //Deprecated option
     if(useSingleTree)
     {
         input->GetObject("PhiGenMatch/SignalTree",singleTree);
@@ -65,63 +65,12 @@ void PhiBDT(double pt_low = 0, double pt_high = 100, int sigTrainTest=0, int bkg
         /*
          * Disable unused branches
          */
-        //signalTree->SetBranchStatus("*",0);
         signalTree->SetBranchStatus("momentum",0);
-        //signalTree->SetBranchStatus("pt_1",1);
-        //signalTree->SetBranchStatus("pt_2",1);
-        //signalTree->SetBranchStatus("ptError_1",1);
-        //signalTree->SetBranchStatus("ptError_2",1);
-        //signalTree->SetBranchStatus("dz_1",1);
-        //signalTree->SetBranchStatus("dz_2",1);
-        //signalTree->SetBranchStatus("dzError_1",1);
-        //signalTree->SetBranchStatus("dzError_2",1);
-        //signalTree->SetBranchStatus("dxy_1",1);
-        //signalTree->SetBranchStatus("dxy_2",1);
-        //signalTree->SetBranchStatus("dxyError_1",1);
-        //signalTree->SetBranchStatus("dxyError_2",1);
-        //signalTree->SetBranchStatus("rapidity_1",1);
-        //signalTree->SetBranchStatus("rapidity_2",1);
-        //signalTree->SetBranchStatus("nhits_1",1);
-        //signalTree->SetBranchStatus("nhits_2",1);
-        //signalTree->SetBranchStatus("dedx_1",1);
-        //signalTree->SetBranchStatus("dedx_2",1);
-        //signalTree->SetBranchStatus("eta_1",1);
-        //signalTree->SetBranchStatus("eta_2",1);
-        //signalTree->SetBranchStatus("momentum_1",1);
-        //signalTree->SetBranchStatus("momentum_2",1);
 
-        //backgroundTree->SetBranchStatus("*",0);
         backgroundTree->SetBranchStatus("momentum",0);
-        //backgroundTree->SetBranchStatus("mass",1);
-        //backgroundTree->SetBranchStatus("pt_1",1);
-        //backgroundTree->SetBranchStatus("pt_2",1);
-        //backgroundTree->SetBranchStatus("ptError_1",1);
-        //backgroundTree->SetBranchStatus("ptError_2",1);
-        //backgroundTree->SetBranchStatus("dz_1",1);
-        //backgroundTree->SetBranchStatus("dz_2",1);
-        //backgroundTree->SetBranchStatus("dzError_1",1);
-        //backgroundTree->SetBranchStatus("dzError_2",1);
-        //backgroundTree->SetBranchStatus("dxy_1",1);
-        //backgroundTree->SetBranchStatus("dxy_2",1);
-        //backgroundTree->SetBranchStatus("dxyError_1",1);
-        //backgroundTree->SetBranchStatus("dxyError_2",1);
-        //backgroundTree->SetBranchStatus("rapidity_1",1);
-        //backgroundTree->SetBranchStatus("rapidity_2",1);
-        //backgroundTree->SetBranchStatus("nhits_1",1);
-        //backgroundTree->SetBranchStatus("nhits_2",1);
-        //backgroundTree->SetBranchStatus("dedx_1",1);
-        //backgroundTree->SetBranchStatus("dedx_2",1);
-        //backgroundTree->SetBranchStatus("eta_1",1);
-        //backgroundTree->SetBranchStatus("eta_2",1);
-        //backgroundTree->SetBranchStatus("momentum_1",1);
-        //backgroundTree->SetBranchStatus("momentum_2",1);
 
         cout << "Branches selected" << endl;
 
-        //input_bkg->GetObject("PhiKaonTree/PhiKaonTree",backgroundTree);
-        //TCut ptCut = "sqrt(TMath::Power(momentum_1,2) + TMath::Power(momentum_2,2) + 2*(px_1*px_2 + py_1*py_2 + pz_1*pz_2)) > pt_low &&\
-                      //sqrt(TMath::Power(momentum_1,2) + TMath::Power(momentum_2,2) + 2*(px_1*px_2 + py_1*py_2 + pz_1*pz_2)) < pt_high";
-        //TCut ptCut = "momentum_1 > pt_low";
         TCut bkgCut = "mass < 1.017 || mass > 1.023";
         //dataloader->AddTree(signalTree,"Signal",signalWeight,ptCut);
         //dataloader->AddTree(backgroundTree,"Background",backgroundWeight,ptCut);
@@ -172,12 +121,6 @@ void PhiBDT(double pt_low = 0, double pt_high = 100, int sigTrainTest=0, int bkg
 
     factory->BookMethod( dataloader, TMVA::Types::kBDT, "BDT",
             "!H:!V:NTrees=850:MinNodeSize=2.5%:MaxDepth=3:BoostType=AdaBoost:AdaBoostBeta=0.5:UseBaggedBoost:BaggedSampleFraction=0.5:SeparationType=GiniIndex:nCuts=20" );
-
-    //factory->BookMethod( dataloader, TMVA::Types::kCuts, "Cuts",
-                       //"!H:!V:FitMethod=MC:EffSel:SampleSize=200000:VarProp=FSmart" );
-
-    //factory->BookMethod( dataloader, TMVA::Types::kCuts, "CutsSA",
-                        //"!H:!V:FitMethod=SA:EffSel:MaxCalls=150000:KernelTemp=IncAdaptive:InitialTemp=1e+6:MinTemp=1e-6:Eps=1e-10:UseDefaultScale" );
 
     factory->TrainAllMethods();
     factory->TestAllMethods();

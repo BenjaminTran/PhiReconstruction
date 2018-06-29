@@ -125,8 +125,8 @@ BDTApp::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
         }
         kaon* dau1 = phi.getKaonDau(0);
         kaon* dau2 = phi.getKaonDau(1);
-        h_dedxMom->Fill(dau1->getDedx(),dau1->getP());
-        h_dedxMom->Fill(dau2->getDedx(),dau2->getP());
+        h_dedxMom->Fill(dau1->getP(),dau1->getDedx());
+        h_dedxMom->Fill(dau2->getP(),dau2->getDedx());
         h_masspt->Fill(phi.getMass(),phi.getPt());
     }
 
@@ -140,7 +140,7 @@ BDTApp::beginJob()
 
     h_nEvt = fs->make<TH1D>("nEvt","",10,0,10);
     h_masspt = fs->make<TH2D>("masspt","",100,1,1.05,200,0,20);
-    h_dedxMom = fs->make<TH2D>("dedx","Dedx vs Momentum",200,0,5,150,0,10);
+    h_dedxMom = fs->make<TH2D>("dedx","Dedx vs Momentum",200,0,20,300,0,15);
 
     for(unsigned i=0; i<pts.size()-1; i++)
     {

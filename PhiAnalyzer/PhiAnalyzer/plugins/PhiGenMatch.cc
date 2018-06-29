@@ -63,12 +63,14 @@ PhiGenMatch::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 
         if(gncand->numberOfDaughters() > 2) continue;
 
+        // Grab the phis
         if(fabs(id) == 333 && fabs(eta) < 2.4)
         {
             h_phi_yield_norap->Fill(gncand->mass());
             const reco::Candidate *d1 = gncand->daughter(0);
             const reco::Candidate *d2 = gncand->daughter(1);
 
+            // Make sure the daughters are charged kaons
             if(fabs(d1->pdgId()) != 321 && fabs(d2->pdgId()) != 321) continue;
 
             std::vector<kaon> tmpKaonDau;
@@ -90,6 +92,7 @@ PhiGenMatch::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
     {
         //if(!utility::SelectionCut(trk,vertex,false,1.0,1.0,2.4,0,5))
         if(!trk->quality(reco::TrackBase::highPurity)) continue;
+        if(abs(trk->charge()) != 1) continue;
         reco::TrackRef track_ref = reco::TrackRef(trkSrc,trk - trkSrc->begin());
         utility::track_combo track_bundle(trk, track_ref);
 
@@ -107,21 +110,27 @@ PhiGenMatch::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
         kaonCutVariables_.vz       = trk->vz();
         kaonCutVariables_.ndof     = trk->ndof();
 
+        // Create kaon object from a track particle
         kaon K(TVector3(trk->px(), trk->py(), trk->pz()), trk->eta(), trk->phi(), kaonCutVariables_, trk->charge(), utility::getDeDx(track_bundle, DeDx_Harm), false);
 
         bool kaonMatched = false;
 
+        // Loop through the container of gen phi daughter pairs
         for(unsigned i=0; i<genDauKaons.size(); i++)
         {
+            // Ideally each of these vectors should contain only two particles - the dau kaons of the phi
             std::vector<kaon> genKaonPair = genDauKaons[i];
             for(unsigned j=0; j<genKaonPair.size(); j++)
             {
                 try
                 {
+                    // Try and match the track particle to one of the daughters
                     if(K.matched(&(genKaonPair[j])))
                     {
+                        // add the kaon to the vector that corresponds to the phi whose daughter it matched to
                         trackKaonPairs.at(i).push_back(K);
                         kaonMatched = true;
+                        // If match found then stop trying to match to other daughters in the container
                         break;
                     }
                 }
@@ -130,9 +139,11 @@ PhiGenMatch::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
                     std::cerr << e.what();
                 }
             }
+            // If matched then stop trying to match to other daugthers
             if(kaonMatched)
                 break;
         }
+        // If the kaon never matches then use it to construct the background
         if(!kaonMatched)
         {
             if(K.getCharge() == 1)
@@ -145,8 +156,9 @@ PhiGenMatch::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
     //Build signal Phis
     for(std::vector<kaon> kaonPair : trackKaonPairs)
     {
-        //Check if there are two kaons in each container. If not then skip
+        //Check if there are at least two kaons in each container. If not then skip
         if(kaonPair.size() < 2) continue;
+        if(kaonPair[0].getCharge() == kaonPair[1].getCharge()) continue;
 
         PhiMeson phi = PhiMeson::BuildPhi(kaonPair[0],kaonPair[1],true);
 

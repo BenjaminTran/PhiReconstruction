@@ -22,7 +22,7 @@ bool Particle::matched(Particle* genParticle)
 
     bool isMatched = false;
 
-    if(deltaR(genParticle->getLorentzVect()) < 0.1 && fabs(dpt/genPt) < 0.1)
+    if(deltaR(genParticle->getLorentzVect()) < 0.05 && fabs(dpt/genPt) < 0.05)
         isMatched = true;
 
     return isMatched;
