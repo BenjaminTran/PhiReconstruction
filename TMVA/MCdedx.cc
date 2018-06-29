@@ -44,7 +44,7 @@ void MCdedx::Terminate()
 
     c2->cd();
 
-    h_dedx->Draw();
+    h_dedx->Draw("COLZ");
     h_dedx->Write();
 
     out->Close();
